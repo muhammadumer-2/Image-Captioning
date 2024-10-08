@@ -33,14 +33,14 @@ This project leverages the BLIP (Bootstrapping Language-Image Pre-training) mode
     ```bash
     venv\Scripts\activate
 
-   On macOS/Linux:
+4. On macOS/Linux:
      
     ```bash
     source venv/bin/activate
 
-4. Install the required dependencies:
+5. Install the required dependencies:
 
-   '''bash
+   ```bash
    pip install -r requirements.txt
 
    

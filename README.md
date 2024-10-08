@@ -24,18 +24,18 @@ This project leverages the BLIP (Bootstrapping Language-Image Pre-training) mode
    cd Image-Captioning
 2. Create a virtual environment:
 
-   '''bash
+   ```bash
    python -m venv venv
 3. Activate the virtual environment:
 
    On Windows:
    
-    '''bash
+    ```bash
     venv\Scripts\activate
 
    On macOS/Linux:
      
-    '''bash
+    ```bash
     source venv/bin/activate
 
 4. Install the required dependencies:

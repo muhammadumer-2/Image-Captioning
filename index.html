@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Captioning with BLIP</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 0;
+        }
+        .container { 
+            margin-top: 50px; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            padding: 20px; 
+            background-color: #fff; 
+            border-radius: 10px; 
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+        }
+        h1 { 
+            color: #333; 
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            margin-top: 20px; 
+        }
+        input[type="file"] {
+            margin-top: 20px;
+        }
+        button { 
+            margin-top: 20px; 
+            background-color: #28a745; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px; 
+        }
+        button:hover { 
+            background-color: #218838; 
+        }
+        .spinner {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showSpinner() {
+            document.getElementById('spinner').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Captioning</h1>
+        <form action="{{ url_for('upload_image') }}" method="post" enctype="multipart/form-data" onsubmit="showSpinner()">
+            <label for="image">Upload an image:</label>
+            <input type="file" name="image" id="image" accept="image/*" required>
+            <br><br>
+            <button type="submit">Generate Caption</button>
+            <div id="spinner" class="spinner">
+                <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="50">
+                <p>Generating caption, please wait...</p>
+            </div>
+        </form>
+
+        {% if uploaded_image %}
+        
+        <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" alt="">
+        <h2>Generated Caption:</h2>
+        <p>{{ caption }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
